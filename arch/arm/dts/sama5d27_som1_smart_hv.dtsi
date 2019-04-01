@@ -45,8 +45,8 @@
 
 #include "sama5d27_som1.dtsi"
 / {
-  model = "Atmel SAMA5D27 SOM1 EK";
-  compatible = "atmel,sama5d27-som1-ek", "atmel,sama5d2", "atmel,sama5";
+  model = "Atmel SAMA5D27 SOM1 SMART HV";
+  compatible = "atmel,sama5d2", "atmel,sama5";
 
   chosen {
 		u-boot,dm-pre-reloc;
@@ -180,7 +180,7 @@
 
 					pinctrl_sdmmc0_ck_cd_default: sdmmc0_ck_cd_default {
 						pinmux = <PIN_PA0__SDMMC0_CK>,
-							 <PIN_PA10__SDMMC0_RSTN>,      /* kann man den weglassen? brauchen wir eigentlich nicht */
+							 /*<PIN_PA10__SDMMC0_RSTN>,      /* kann man den weglassen? brauchen wir eigentlich nicht */
 							 <PIN_PA13__SDMMC0_CD>;
 						bias-disable;
 						u-boot,dm-pre-reloc;

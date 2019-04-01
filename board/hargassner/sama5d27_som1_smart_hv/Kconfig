@@ -1,0 +1,15 @@
+if TARGET_SAMA5D27_SOM1_SMART_HV
+
+config SYS_BOARD
+	default "sama5d27_som1_smart_hv"
+
+config SYS_VENDOR
+	default "hargassner"
+
+config SYS_SOC
+	default "at91"
+
+config SYS_CONFIG_NAME
+	default "sama5d27_som1_smart_hv"
+
+endif

@@ -86,7 +86,7 @@
 			status = "okay";
 			u-boot,dm-pre-reloc;
 		};
-    
+
 		apb {
 			hlcdc: hlcdc@f0000000 {
 				atmel,vl-bpix = <4>;
@@ -122,6 +122,12 @@
 
 			pioA: gpio@fc038000 {
 				pinctrl {
+
+          pinctrl_sk_rel: pinctrl_sk_rel {
+            pinmux = <PIN_PA21__GPIO>;
+            output-low;
+          }
+
 					pinctrl_lcd_base: pinctrl_lcd_base {
 						pinmux = <PIN_PC5__LCDVSYNC>,
 							 <PIN_PC6__LCDHSYNC>,

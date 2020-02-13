@@ -23,13 +23,13 @@ DECLARE_GLOBAL_DATA_PTR;
 
 static void board_init_gpio(void)
 {
-	//at91_set_pio_output(AT91_PIO_PORTC, 12, 0);
-	atmel_pio4_set_pio_output(AT91_PIO_PORTC, 12, 0);
+	atmel_pio4_set_pio_output(AT91_PIO_PORTC, 12, 0);	// gruene LED
+
+	atmel_pio4_set_pio_output(AT91_PIO_PORTA, 31, 0); // lambda pwm
 }
 
 static void board_usb_hw_init(void)
 {
-	atmel_pio4_set_pio_output(AT91_PIO_PORTC, 13, 1);//AT91_PIO_PORTA, 27, 1);
 }
 
 #ifdef CONFIG_BOARD_LATE_INIT

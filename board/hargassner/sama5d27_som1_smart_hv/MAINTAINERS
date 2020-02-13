@@ -4,4 +4,4 @@ M:  Clemens Puehringer <clemens.puehringer@hargassner.at>
 S:	Maintained
 F:	board/hargassner/sama5d27_som1_smart_hv/
 F:	include/configs/sama5d27_som1_smart_hv.h
-F:	configs/sama5d27_som1_smart_hv_mmc_defconfig
+F:	configs/sama5d27_som1_smart_hv_defconfig

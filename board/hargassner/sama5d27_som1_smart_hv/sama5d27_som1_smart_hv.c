@@ -15,13 +15,16 @@
 #include <asm/arch/gpio.h>
 #include <asm/arch/sama5d2.h>
 
+#include <mach/at91_pio.h>
+
 extern void at91_pda_detect(void);
 
 DECLARE_GLOBAL_DATA_PTR;
 
 static void board_init_gpio(void)
 {
-	atmel_pio4_set_pio_output(AT91_PIO_PORTC, 12, 0);
+	at91_set_pio_output(AT91_PIO_PORTC, 12, 0);
+	//atmel_pio4_set_pio_output(AT91_PIO_PORTC, 12, 0);
 }
 
 static void board_usb_hw_init(void)

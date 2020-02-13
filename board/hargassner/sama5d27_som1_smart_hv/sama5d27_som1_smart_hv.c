@@ -21,7 +21,7 @@ DECLARE_GLOBAL_DATA_PTR;
 
 static void board_init_gpio(void)
 {
-	atmel_pio4_set_pio_output(AT91_PIO_PORTC, 12, 1);
+	atmel_pio4_set_pio_output(AT91_PIO_PORTC, 12, 0);
 }
 
 static void board_usb_hw_init(void)

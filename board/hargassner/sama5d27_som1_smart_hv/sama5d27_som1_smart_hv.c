@@ -23,8 +23,8 @@ DECLARE_GLOBAL_DATA_PTR;
 
 static void board_init_gpio(void)
 {
-	at91_set_pio_output(AT91_PIO_PORTC, 12, 0);
-	//atmel_pio4_set_pio_output(AT91_PIO_PORTC, 12, 0);
+	//at91_set_pio_output(AT91_PIO_PORTC, 12, 0);
+	atmel_pio4_set_pio_output(AT91_PIO_PORTC, 12, 0);
 }
 
 static void board_usb_hw_init(void)
@@ -78,6 +78,7 @@ int board_init(void)
 	board_usb_hw_init();
 #endif
 
+	board_init_gpio();
 	return 0;
 }
 
@@ -140,8 +141,6 @@ static void ddrc_conf(struct atmel_mpddrc_config *ddrc)
 		      (4 << ATMEL_MPDDRC_TPR2_TRPA_OFFSET) |
 		      (4 << ATMEL_MPDDRC_TPR2_TRTP_OFFSET) |
 		      (8 << ATMEL_MPDDRC_TPR2_TFAW_OFFSET));
-
-	board_init_gpio();		//eigene funktion
 }
 
 void mem_init(void)

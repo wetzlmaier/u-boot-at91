@@ -23,9 +23,23 @@ DECLARE_GLOBAL_DATA_PTR;
 
 static void board_init_gpio(void)
 {
-	atmel_pio4_set_pio_output(AT91_PIO_PORTC, 12, 0);	// gruene LED
+	const char port_a_pins[] = {6, 7, 8, 21, 22, 31};
+	const char port_b_pins[] = {1};
+	const char port_c_pins[] = {9, 12, 28, 30};
+	const char port_d_pins[] = {7, 8};
 
-	atmel_pio4_set_pio_output(AT91_PIO_PORTA, 31, 0); // lambda pwm
+	int i = 0;
+	for(i = 0; i < sizeof(port_a_pins); ++i)
+		atmel_pio4_set_pio_output(AT91_PIO_PORTA, port_a_pins[i], 0);
+
+	for(i = 0; i < sizeof(port_b_pins); ++i)
+		atmel_pio4_set_pio_output(AT91_PIO_PORTB, port_b_pins[i], 0);
+
+	for(i = 0; i < sizeof(port_c_pins); ++i)
+		atmel_pio4_set_pio_output(AT91_PIO_PORTC, port_c_pins[i], 0);
+
+	for(i = 0; i < sizeof(port_d_pins); ++i)
+		atmel_pio4_set_pio_output(AT91_PIO_PORTD, port_d_pins[i], 0);
 }
 
 static void board_usb_hw_init(void)

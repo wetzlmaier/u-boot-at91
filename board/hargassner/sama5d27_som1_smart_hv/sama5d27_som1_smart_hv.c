@@ -23,23 +23,23 @@ DECLARE_GLOBAL_DATA_PTR;
 
 static void board_init_gpio(void)
 {
-	const char port_a_pins[] = {6, 7, 8, 21, 22, 31};
-	const char port_b_pins[] = {1};
-	const char port_c_pins[] = {9, 12, 28, 30};
-	const char port_d_pins[] = {7, 8};
+	atmel_pio4_set_pio_output(AT91_PIO_PORTA, 6, 0);		//Rel 4
+	atmel_pio4_set_pio_output(AT91_PIO_PORTA, 7, 0);		//Rel 9
+	atmel_pio4_set_pio_output(AT91_PIO_PORTA, 8, 0);		//Rel 8
+	atmel_pio4_set_pio_output(AT91_PIO_PORTA, 21, 0);		//Rel 2
+	atmel_pio4_set_pio_output(AT91_PIO_PORTA, 22, 0);		//Rel 3
+	atmel_pio4_set_pio_output(AT91_PIO_PORTA, 31, 0);		//Lambda PWM
 
-	int i = 0;
-	for(i = 0; i < sizeof(port_a_pins); ++i)
-		atmel_pio4_set_pio_output(AT91_PIO_PORTA, port_a_pins[i], 0);
+	atmel_pio4_set_pio_output(AT91_PIO_PORTB, 1, 0);		//ES 0-10V
 
-	for(i = 0; i < sizeof(port_b_pins); ++i)
-		atmel_pio4_set_pio_output(AT91_PIO_PORTB, port_b_pins[i], 0);
+	atmel_pio4_set_pio_output(AT91_PIO_PORTC, 9, 0);		//LED R
+	atmel_pio4_set_pio_output(AT91_PIO_PORTC, 10, 0);		//PWM Pumpe
+	atmel_pio4_set_pio_output(AT91_PIO_PORTC, 12, 0);		//LED G
+	atmel_pio4_set_pio_output(AT91_PIO_PORTC, 28, 0);		//Rel 7
+	atmel_pio4_set_pio_output(AT91_PIO_PORTC, 30, 0);		//Rel 6
 
-	for(i = 0; i < sizeof(port_c_pins); ++i)
-		atmel_pio4_set_pio_output(AT91_PIO_PORTC, port_c_pins[i], 0);
-
-	for(i = 0; i < sizeof(port_d_pins); ++i)
-		atmel_pio4_set_pio_output(AT91_PIO_PORTD, port_d_pins[i], 0);
+	atmel_pio4_set_pio_output(AT91_PIO_PORTD, 7, 0);		//Rel 5
+	atmel_pio4_set_pio_output(AT91_PIO_PORTD, 8, 0);		//Rel 1
 }
 
 static void board_usb_hw_init(void)
@@ -53,6 +53,9 @@ int board_late_init(void)
 	at91_video_show_board_info();
 #endif
 	at91_pda_detect();
+
+	board_init_gpio();
+
 	return 0;
 }
 #endif
@@ -92,7 +95,6 @@ int board_init(void)
 	board_usb_hw_init();
 #endif
 
-	board_init_gpio();
 	return 0;
 }
 

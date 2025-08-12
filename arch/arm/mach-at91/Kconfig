@@ -451,8 +451,6 @@ source "board/ronetix/pm9g45/Kconfig"
 source "board/siemens/corvus/Kconfig"
 source "board/siemens/taurus/Kconfig"
 source "board/siemens/smartweb/Kconfig"
-source "board/laird/wb45n/Kconfig"
-source "board/laird/wb50n/Kconfig"
 source "board/hargassner/sama5d27_som1_smart_hv/Kconfig"
 
 config SPL_LDSCRIPT

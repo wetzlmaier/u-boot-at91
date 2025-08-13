@@ -371,10 +371,12 @@ config TARGET_VINCO
 
 config TARGET_SAMA5D27_SOM1_SMART_HV
 	bool "SAMA5D27 SOM1 SMART HV board"
-	select CPU_V7A
-	select SUPPORT_SPL
+	select SAMA5D2
 	select BOARD_EARLY_INIT_F
 	select BOARD_LATE_INIT
+	select CPU_V7A
+	select SUPPORT_SPL
+	select ATMEL_SFR
 
 endchoice
 
@@ -452,9 +454,5 @@ source "board/siemens/corvus/Kconfig"
 source "board/siemens/taurus/Kconfig"
 source "board/siemens/smartweb/Kconfig"
 source "board/hargassner/sama5d27_som1_smart_hv/Kconfig"
-
-config SPL_LDSCRIPT
-	default "arch/arm/mach-at91/arm926ejs/u-boot-spl.lds" if CPU_ARM926EJS
-	default "arch/arm/mach-at91/armv7/u-boot-spl.lds" if CPU_V7A
 
 endif
